@@ -1,0 +1,6 @@
+server:
+  port: 8080
+website:
+  name: 简单的spring boot
+  domain: https://www.jaminhuang.com
+  msg: 这是一个简单的spring boot 框架
