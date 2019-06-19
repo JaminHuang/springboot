@@ -10,3 +10,17 @@ spring:
     username: jaminhuang
     password: opN9d1t3AUQ#Kzyy
     driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: 103.40.29.133
+    port: 8888
+    password: JA9EpspV792kVv8Y
+    pool:
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count==countSql
+  page-size-zero: true

@@ -1,5 +1,7 @@
 package com.springboot.entity;
 
+import javax.xml.crypto.Data;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Date;
  * JaminHuang   2019年6月19日 13:36:43
  */
 public class Church {
+
     /**
      * 教会/团契标识
      */
@@ -23,6 +26,15 @@ public class Church {
      * 最后更新时间
      */
     private Date UpdateTime;
+
+    public Church() {}
+
+    public Church(String churchId, String churChName, String logo) {
+        this.ChurchId = churchId;
+        this.ChurChName = churChName;
+        this.Logo = logo;
+        this.UpdateTime = new Date();
+    }
 
     public String getChurchId() {
         return ChurchId;
