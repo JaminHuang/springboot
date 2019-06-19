@@ -27,13 +27,13 @@ public class ChurchService implements ChurchDao {
      */
     public Church get(String churchId) {
         String key = "churchId";
-
+        Church church;
         if(redisUtil.exists(key)) {
-            Church church = JSON.parseObject(redisUtil.get(key, 1), Church.class);
+            church = JSON.parseObject(redisUtil.get(key, 1), Church.class);
             return church;
         }
         else {
-            Church church = churchDao.get(churchId);
+            church = churchDao.get(churchId);
             redisUtil.set(key, JSON.toJSONString(church), 1);
             return church;
         }

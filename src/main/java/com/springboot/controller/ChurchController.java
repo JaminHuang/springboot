@@ -3,33 +3,41 @@ package com.springboot.controller;
 import com.github.pagehelper.PageInfo;
 import com.springboot.entity.Church;
 import com.springboot.service.ChurchService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiImplicitParams;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
+@Api(value = "团契操作", description = "团契相关的操作", tags = {"团契模块"})
 @RestController
 @RequestMapping("/church")
 public class ChurchController {
     @Autowired
     private ChurchService churchService;
 
-    // 获取指定教会/团契信息
-    @RequestMapping(value = "/get/{churchId}", method = RequestMethod.GET)
-    public String getChurch(@PathVariable String churchId) {
-        Church church = churchService.get(churchId);
-        return church.toString();
+    @ApiOperation(value = "获取指定团契信息", notes = "根据传入标识获取详细信息")
+    @ApiImplicitParam(name = "churchId", value = "团契标识", required = true, dataType = "String", paramType = "path")
+    @RequestMapping(value = "/get/{churchId}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    public Church getChurch(@PathVariable String churchId) {
+        return churchService.get(churchId);
     }
 
-    // 获取教会/团契列表
-    @RequestMapping(value = "list", method = RequestMethod.GET)
+    @ApiOperation(value = "获取团契列表", notes = "获取团契列表")
+    @RequestMapping(value = "list", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
     public List<Church> list() {
         return churchService.list();
     }
 
-    // 分页获取教会/团契列表
-    @RequestMapping(value = "page_list", method = RequestMethod.GET)
-    public PageInfo<Church> list(int page, int pageSize) {
+    @ApiOperation(value = "分页获取团契列表", notes = "获取团契列表")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "page", value = "第几页", required = true, dataType = "Integer", paramType = "path"),
+            @ApiImplicitParam(name = "pageSize", value = "每页取几条记录", required = true, dataType = "Integer", paramType = "path")
+    })
+    @RequestMapping(value = "/list/{page}/{pageSize}", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
+    public PageInfo<Church> list(@PathVariable("page") int page, @PathVariable("pageSize") int pageSize) {
         return churchService.list(page, pageSize);
     }
 }

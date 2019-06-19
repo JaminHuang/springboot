@@ -15,8 +15,8 @@ spring:
     port: 8888
     password: JA9EpspV792kVv8Y
     pool:
-      max-idle: 8
-      min-idle: 0
+      max-idle: 1000
+      max-wait: 1500
     timeout: 0
 pagehelper:
   helper-dialect: mysql

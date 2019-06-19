@@ -67,14 +67,4 @@ public class Church {
     public void setUpdateTime(Date updateTime) {
         UpdateTime = updateTime;
     }
-
-    @Override
-    public String toString() {
-        return "Church{" +
-                "ChurchId='" + ChurchId + '\'' +
-                ", ChurChName='" + ChurChName + '\'' +
-                ", Logo='" + Logo + '\'' +
-                ", UpdateTime=" + UpdateTime +
-                '}';
-    }
 }
