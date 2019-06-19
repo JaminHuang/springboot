@@ -10,16 +10,16 @@ import java.util.List;
 public interface ChurchDao {
 
     /**
-     * 获取指定教会/团契信息
-     * @param churchId 教会/团契标识
-     * @return 教会/团契对象
+     * 获取指定团契信息
+     * @param churchId 团契标识
+     * @return 团契对象
      */
     @Select("SELECT * FROM Church WHERE ChurchId = #{churchId}")
     Church get(String churchId);
 
     /**
-     * 获取教会/团契列表
-     * @return 教会/团契列表
+     * 获取团契列表
+     * @return 团契列表
      */
     @Select("SELECT * FROM Church")
     List<Church> list();

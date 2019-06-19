@@ -1,17 +1,15 @@
 package com.springboot.entity;
 
-import javax.xml.crypto.Data;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
- * 教会信息类
+ * 团契信息类
  * JaminHuang   2019年6月19日 13:36:43
  */
 public class Church {
 
     /**
-     * 教会/团契标识
+     * 团契标识
      */
     private String ChurchId;
     /**

@@ -21,9 +21,9 @@ public class ChurchService implements ChurchDao {
     RedisUtil redisUtil;
 
     /**
-     * 获取指定教会/团契信息
-     * @param churchId 教会标识
-     * @return 教会/团契信息
+     * 获取指定团契信息
+     * @param churchId 团契标识
+     * @return 团契信息
      */
     public Church get(String churchId) {
         String key = "churchId";
@@ -40,18 +40,18 @@ public class ChurchService implements ChurchDao {
     }
 
     /**
-     * 获取教会/团契列表
-     * @return 教会/团契列表
+     * 获取教团契列表
+     * @return 团契列表
      */
     public List<Church> list() {
         return churchDao.list();
     }
 
     /**
-     * 分页获取教会/团契列表
+     * 分页获取团契列表
      * @param page 当前页
      * @param pageSize 每页显示数
-     * @return 教会/团契列表
+     * @return 团契列表
      */
     public PageInfo<Church> list(int page, int pageSize) {
         PageHelper.startPage(page, pageSize);
