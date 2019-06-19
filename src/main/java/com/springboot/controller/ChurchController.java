@@ -4,10 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.springboot.entity.Church;
 import com.springboot.service.ChurchService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,8 +15,8 @@ public class ChurchController {
     private ChurchService churchService;
 
     // 获取指定教会/团契信息
-    @RequestMapping(value = "get", method = RequestMethod.GET)
-    public String getChurch(@RequestParam("id") String churchId) {
+    @RequestMapping(value = "/get/{churchId}", method = RequestMethod.GET)
+    public String getChurch(@PathVariable String churchId) {
         Church church = churchService.get(churchId);
         return church.toString();
     }
