@@ -1,5 +1,7 @@
 package com.springboot.entity;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.Date;
 
 /**
@@ -11,9 +13,10 @@ public class Church {
     /**
      * 团契标识
      */
+    @Id
     private String ChurchId;
     /**
-     * 教会/团契名称
+     * 团契名称
      */
     private String ChurChName;
     /**
