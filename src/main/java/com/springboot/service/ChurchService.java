@@ -3,16 +3,14 @@ package com.springboot.service;
 import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.springboot.common.MongoDbUtil;
 import com.springboot.common.RedisUtil;
 import com.springboot.dao.ChurchDao;
 import com.springboot.entity.Church;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class ChurchService implements ChurchDao {
@@ -22,6 +20,17 @@ public class ChurchService implements ChurchDao {
 
     @Autowired
     RedisUtil redisUtil;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
+
+    /**
+     * 添加团契信息
+     * @param church 团契信息
+     */
+    public void add(Church church) {
+        churchDao.add(church);
+    }
 
     /**
      * 获取指定团契信息
@@ -47,8 +56,7 @@ public class ChurchService implements ChurchDao {
      * @return 团契列表
      */
     public List<Church> list() {
-        List<Church> list = churchDao.list();
-        return list;
+        return churchDao.list();
     }
 
     /**

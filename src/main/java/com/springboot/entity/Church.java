@@ -13,12 +13,11 @@ public class Church {
     /**
      * 团契标识
      */
-    @Id
     private String ChurchId;
     /**
      * 团契名称
      */
-    private String ChurChName;
+    private String ChurchName;
     /**
      * Logo地址
      */
@@ -30,9 +29,9 @@ public class Church {
 
     public Church() {}
 
-    public Church(String churchId, String churChName, String logo) {
+    public Church(String churchId, String ChurchName, String logo) {
         this.ChurchId = churchId;
-        this.ChurChName = churChName;
+        this.ChurchName = ChurchName;
         this.Logo = logo;
         this.UpdateTime = new Date();
     }
@@ -45,12 +44,12 @@ public class Church {
         ChurchId = churchId;
     }
 
-    public String getChurChName() {
-        return ChurChName;
+    public String getChurchName() {
+        return ChurchName;
     }
 
-    public void setChurChName(String churChName) {
-        ChurChName = churChName;
+    public void setChurchName(String churChName) {
+        ChurchName = churChName;
     }
 
     public String getLogo() {
