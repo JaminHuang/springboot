@@ -19,7 +19,7 @@
         <mysql.version>5.1.40</mysql.version>
         <pagehelper.version>1.2.5</pagehelper.version>
         <redis.version>2.9.0</redis.version>
-        <json.version>1.1.23</json.version>
+        <json.version>1.2.25</json.version>
         <springfox.version>2.7.0</springfox.version>
     </properties>
 
